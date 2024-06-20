@@ -3,23 +3,19 @@ function alterarStatus(id){
     
     let imagem = jogoSelecionado.querySelector('.dashboard__item__img');
     let botao = jogoSelecionado.querySelector('.dashboard__item__button');
-    let textoJogo = jogoSelecionado.querySelector('.dashboard__item__name');
-    alert (textoJogo.textContent);
     
-    if (jogoSelecionado.classList.contains('dashboard__item__button')){
-        selecionarBotao()
+    if (imagem.classList.contains('dashboard__item__img--rented')){
+        imagem.classList.remove('dashboard__item__img--rented');
+        botao.classList.remove('dashboard__item__button--return');
+        botao.textContent ='Alugar';
     }else{
-        desselecionaBotao();
+        imagem.classList.add('dashboard__item__img--rented');
+        botao.classList.add('dashboard__item__button--return');
+        botao.textContent = 'Devolver';
     }
 }
 
-function selecionarBotao (){
-    botao.classList.remove('dashboard__item__button');
-    botao.classList.add('dashboard__item__button dashboard__item__button--return')
-
-}
 
 function desselecionaBotao(){
-    botao.classList.remove('dashboard__item__button dashboard__item__button--return');
-    botao.classList.add('dashboard__item__button')
+    
 }
